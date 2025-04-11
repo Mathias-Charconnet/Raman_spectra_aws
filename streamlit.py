@@ -1,15 +1,9 @@
-
+ls
 
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import matplotlib.cm as cm
-from sklearn.decomposition import PCA
-from sklearn.preprocessing import StandardScaler
-from sklearn.manifold import TSNE
-from scipy.signal import savgol_filter
-import pubchempy as pcp
-from lmfit.models import ExponentialModel
 from scipy.ndimage import gaussian_filter1d
 import streamlit as st
 
