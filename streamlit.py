@@ -45,7 +45,7 @@ def return_raman_spectra_broadened(peak_shifts, noise_intensity=0.05,fluorescenc
     
 col1, col2 = st.columns([1, 3])
 
-peak_shifts_dict = {'Lactate':[543,853,876,989,1040,1053,1081,1459],'Glucose':[437, 518, 1060, 1125, 1365, 1461],'Urea':[1005, 1461],'Glutamate':[606,768,871,938,1004,1073,1140,1346,1416,1612],'Glutamine':[622,652,776,848,895,1097,1330,1417],'Sodium Acetate':[82,166,667,927,1416,1464]}
+peak_shifts_dict = {'Lactate':[543,853,876,989,1040,1053,1081,1459],'Glucose':[437, 518, 1060, 1125, 1365, 1461],'Urea':[1005,1170,1461,1532],'Glutamate':[606,768,871,938,1004,1073,1140,1346,1416,1612],'Glutamine':[622,652,776,848,895,1097,1330,1417],'Sodium Acetate':[82,166,667,927,1416,1464]}
 
 excitation=520
 
