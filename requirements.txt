@@ -3,5 +3,3 @@ streamlit
 numpy
 matplotlib
 scipy
-sqlalchemy
-psycopg2-binary
