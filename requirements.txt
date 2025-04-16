@@ -4,4 +4,4 @@ numpy
 matplotlib
 scipy
 psycopg2-binary
-sqlalchemyls
+sqlalchemyl
