@@ -28,6 +28,8 @@ query='SELECT * FROM "Raman_simulated_1"'
 cur.execute(query)
 
 df_aws=pd.DataFrame(cur.fetchall())
+cur.close()
+conn.close()
 
 compound = st.selectbox(
     'Which chemical would you like to show raman spectra ?',
@@ -39,7 +41,7 @@ concentration= st.selectbox(
 compound="Lactate"
 concentration=0.5
 
-df_sub=df_aws[(df_aws[0] == 'Lactate') & (df_aws[1] == 0.5)]
+df_sub=df_aws[(df_aws[0] == compound) & (df_aws[1] == concentration)]
 
 fig, ax = plt.subplots(figsize=(12, 8))
 ax.plot(df_sub[2], df_sub[3], label='Mixture', linewidth=2)
@@ -48,5 +50,4 @@ ax.set_ylabel("Intensity (a.u.)")
         
 st.pyplot(fig)
 
-cur.close()
-conn.close()
+
