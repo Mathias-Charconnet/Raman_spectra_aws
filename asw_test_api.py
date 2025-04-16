@@ -38,9 +38,6 @@ concentration= st.selectbox(
     'What concentration would you like to plot ?',
     df_aws[1].unique())
 
-compound="Lactate"
-concentration=0.5
-
 df_sub=df_aws[(df_aws[0] == compound) & (df_aws[1] == concentration)]
 
 fig, ax = plt.subplots(figsize=(12, 8))
