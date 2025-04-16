@@ -1,3 +1,7 @@
+import psycopg2
+from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
+from sqlalchemy import create_engine
+import pandas as pd 
 user_aws = 'postgres'
 password_aws = 'Ulk9froba'  
 host_aws = 'raman-spectra-simulated.cst66uws8ol9.us-east-1.rds.amazonaws.com'
