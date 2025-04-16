@@ -2,6 +2,10 @@ import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 from sqlalchemy import create_engine
 import pandas as pd 
+import matplotlib.pyplot as plt
+import numpy as np
+import streamlit as st
+
 user_aws = 'postgres'
 password_aws = 'Ulk9froba'  
 host_aws = 'raman-spectra-simulated.cst66uws8ol9.us-east-1.rds.amazonaws.com'
@@ -21,6 +25,7 @@ cur = conn.cursor()
 
 
 query='SELECT * FROM "Raman_simulated_1"'
+cur.execute(query)
 
 df_aws=pd.DataFrame(cur.fetchall())
 
