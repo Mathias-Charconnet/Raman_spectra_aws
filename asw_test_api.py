@@ -20,12 +20,12 @@ query='SELECT * FROM "Raman_simulated_1"'
 
 df_aws=pd.DataFrame(cur.fetchall())
 
-    compound = st.selectbox(
-        'Which chemical would you like to show raman spectra ?',
-        df_aws[0].unique())
-    concentration= st.selectbox(
-            What concentration would you like to plot ?',
-        df_aws[1].unique())
+compound = st.selectbox(
+    'Which chemical would you like to show raman spectra ?',
+    df_aws[0].unique())
+concentration= st.selectbox(
+    'What concentration would you like to plot ?',
+    df_aws[1].unique())
 
 compound="Lactate"
 concentration=0.5
