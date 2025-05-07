@@ -11,22 +11,14 @@ import streamlit as st
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker
 
-# Load database credentials
-config = st.secrets["connections.sql"]
+conn = st.connection("postgres", type="sql")
 
-DATABASE_URL = (
-    f"{config['dialect']}://{config['username']}:{config['password']}@"
-    f"{config['host']}:{config['port']}/{config['database']}"
-)
+cur = conn.cursor()
 
-# Use standard SQLAlchemy engine (not async)
-engine = create_engine(DATABASE_URL, echo=True)
-SessionLocal = sessionmaker(bind=engine)
-SessionLocal = sessionmaker(bind=engine)
+query='SELECT * FROM "Raman_simulated_1"'
 
-with SessionLocal() as session:
-        result = session.execute(query)
-        df_aws=pd.DataFrame(result.fetchall())
+cur.execute(query)
+df_aws=pd.DataFrame(cur.fetchall())
 
 compound = st.selectbox(
     'Which chemical would you like to show raman spectra ?',
