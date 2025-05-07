@@ -27,7 +27,7 @@ concentration= st.selectbox(
     'What concentration would you like to plot ?',
     df_aws['Concentration'].unique())
 
-df_sub=df_aws[(df_aws[0] == compound) & (df_aws[1] == concentration)]
+df_sub=df_aws[(df_aws['Label'] == compound) & (df_aws['Concentration'] == concentration)]
 
 fig, ax = plt.subplots(figsize=(12, 8))
 ax.plot(df_sub[2], df_sub[3], label='Mixture', linewidth=2)
