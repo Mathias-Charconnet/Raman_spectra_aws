@@ -13,12 +13,10 @@ from sqlalchemy.orm import sessionmaker
 
 conn = st.connection("postgres", type="sql")
 
-cur = conn.cursor()
 
 query='SELECT * FROM "Raman_simulated_1"'
 
-cur.execute(query)
-df_aws=pd.DataFrame(cur.fetchall())
+df_aws=(query)
 
 compound = st.selectbox(
     'Which chemical would you like to show raman spectra ?',
