@@ -22,10 +22,10 @@ st.dataframe(df_aws)
 
 compound = st.selectbox(
     'Which chemical would you like to show raman spectra ?',
-    df_aws[0].unique())
+    df_aws['Label'].unique())
 concentration= st.selectbox(
     'What concentration would you like to plot ?',
-    df_aws[1].unique())
+    df_aws['Concentration'].unique())
 
 df_sub=df_aws[(df_aws[0] == compound) & (df_aws[1] == concentration)]
 
