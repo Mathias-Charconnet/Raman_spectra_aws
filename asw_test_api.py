@@ -11,15 +11,7 @@ password_aws = 'Ulk9froba'
 host_aws = 'raman-spectra-simulated.cst66uws8ol9.us-east-1.rds.amazonaws.com'
 database_aws = 'Raman_simulated'
 
-    # Connect to the default 'postgres' database to create a new one
-conn = psycopg2.connect(
-    dbname=database_aws,
-    user=user_aws,
-    password="Ulk9froba",  # replace with the password you set earlier
-    host=host_aws,
-    port = '5432'
-)
-
+conn = st.connection("sql")
 
 cur = conn.cursor()
 
