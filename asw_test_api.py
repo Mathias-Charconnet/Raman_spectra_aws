@@ -16,7 +16,9 @@ conn = st.connection("postgres", type="sql")
 
 query='SELECT * FROM "Raman_simulated_1"'
 
-df_aws=conn.query(query)
+df_aws=conn.query(query,ttl="10m")
+
+st.dataframe(df_aws)
 
 compound = st.selectbox(
     'Which chemical would you like to show raman spectra ?',
