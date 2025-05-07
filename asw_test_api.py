@@ -32,7 +32,7 @@ df_sub=df_aws[(df_aws['Label'] == compound) & (df_aws['Concentration'] == concen
 st.dataframe(df_sub)
 
 fig, ax = plt.subplots(figsize=(12, 8))
-ax.plot(df_sub[2], df_sub[3], label='Mixture', linewidth=2)
+ax.plot(df_sub['wavenumber'], df_sub['intensity'], label='Mixture', linewidth=2)
 ax.set_xlabel("Raman shift (cm⁻¹)")
 ax.set_ylabel("Intensity (a.u.)")
         
