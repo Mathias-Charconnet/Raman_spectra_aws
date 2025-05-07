@@ -1,27 +1,32 @@
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 import pandas as pd 
 import matplotlib.pyplot as plt
 import numpy as np
 import streamlit as st
 
-user_aws = 'postgres'
-password_aws = 'Ulk9froba'  
-host_aws = 'raman-spectra-simulated.cst66uws8ol9.us-east-1.rds.amazonaws.com'
-database_aws = 'Raman_simulated'
+import streamlit as st
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
+from sqlalchemy.orm import sessionmaker
 
-conn = st.connection("sql")
+# Load database credentials
+config = st.secrets["connections.sql"]
 
-cur = conn.cursor()
+DATABASE_URL = (
+    f"{config['dialect']}://{config['username']}:{config['password']}@"
+    f"{config['host']}:{config['port']}/{config['database']}"
+)
 
+# Use standard SQLAlchemy engine (not async)
+engine = create_engine(DATABASE_URL, echo=True)
+SessionLocal = sessionmaker(bind=engine)
+SessionLocal = sessionmaker(bind=engine)
 
-query='SELECT * FROM "Raman_simulated_1"'
-cur.execute(query)
-
-df_aws=pd.DataFrame(cur.fetchall())
-cur.close()
-conn.close()
+with SessionLocal() as session:
+        result = session.execute(query)
+        df_aws=pd.DataFrame(result.fetchall())
 
 compound = st.selectbox(
     'Which chemical would you like to show raman spectra ?',
