@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.cm as cm
 from scipy.ndimage import gaussian_filter1d
 import streamlit as st
-import matplotlib
+import matplotlib as mp
 
 
 
